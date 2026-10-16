@@ -4,7 +4,7 @@ import * as Const from './constants.js';
 
 const Gameboard = function() {
 
-   const board = [];
+   const board = initializeBoard();
 
    const carrier = Ship(Const.CARRIER);
    const battleship = Ship(Const.BATTLESHIP);
@@ -93,16 +93,18 @@ const Gameboard = function() {
    }
 
    function initializeBoard() {
+      const initBoard = [];
       for (let x = 0; x < Const.GAMEBOARD_SIZE; x++) {
-         board[x] = [];
+         initBoard[x] = [];
          for (let y = 0; y < Const.GAMEBOARD_SIZE; y++) {
-            board[x][y] = Const.EMPTY;
+            initBoard[x][y] = Const.EMPTY;
          }
       }
+      return initBoard;
    }
 
-   return { shipList, 
-            startGame, 
+   return { shipList,
+            board, 
             receiveAttack, 
             placeShip, 
             boardToString,
