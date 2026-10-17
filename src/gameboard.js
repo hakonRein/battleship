@@ -66,10 +66,6 @@ const Gameboard = function() {
       }
    }
 
-   function startGame() {
-      initializeBoard();
-   }
-
    function allShipsSunk() {
       for (const ship of shipList) {
          if (!ship.isSunk()) {

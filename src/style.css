@@ -21,6 +21,11 @@ button {
     border-radius: 5px;
 }
 
+.info-text {
+    font-size: 1.5rem;
+    color: gold;
+}
+
 /* Header */
 
 header {
@@ -35,14 +40,24 @@ header {
 /* Board section */
 
 main {
-    width: 424px;
+    text-align: center;
+    width: 800px;
     margin: 50px auto 0;
+}
+
+main > p {
+    margin-bottom: 50px;
+}
+
+.play-zone {
+    display: flex;
+    justify-content: space-around;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(10, 40px);
-    grid-template-rows: repeat(10, 40px);
+    grid-template-columns: repeat(10, 1fr);
+    /*grid-template-rows: repeat(10, 20px);*/
     gap: 2px;
     border: 3px solid gold;
     background-color: white;
@@ -52,6 +67,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
 
     background-color: darkgreen;
+    aspect-ratio: 1;
+}
+
+.board + p {
+    margin: 20px;
 }

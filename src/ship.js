@@ -17,10 +17,6 @@ const Ship = function(shipType) {
       return hitCount >= length;
    }
 
-   function getHit() {
-      return hitCount;
-   }
-
    function setLength(shipType) {
       switch (shipType) {
          case Const.CARRIER:     return 5;
@@ -33,6 +29,6 @@ const Ship = function(shipType) {
       }
    }
    
-   return { type, length, hit, isSunk, getHit };
+   return { type, length, hit, isSunk };
 };
 
