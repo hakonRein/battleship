@@ -15,7 +15,7 @@ const Player = function(playerType) {
       gameBoard.placeShip(gameBoard.shipList[0], 0, 0, 0);
       gameBoard.placeShip(gameBoard.shipList[1], 4, 3, 1);
       gameBoard.placeShip(gameBoard.shipList[2], 1, 9, 1);
-      gameBoard.placeShip(gameBoard.shipList[3], 7, 7, 2);
+      gameBoard.placeShip(gameBoard.shipList[3], 7, 7, 0);
       gameBoard.placeShip(gameBoard.shipList[4], 5, 6, 1);
    }
 

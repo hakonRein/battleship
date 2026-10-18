@@ -19,6 +19,7 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .info-text {
@@ -63,14 +64,13 @@ main > p {
     background-color: white;
 }
 
-.board-square {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.square-btn {
     padding: 5px;
-
     background-color: darkgreen;
+    color: lightgray;;
     aspect-ratio: 1;
+    border-radius: 0;
+
 }
 
 .board + p {

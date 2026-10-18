@@ -13,8 +13,8 @@ export const DESTROYER = 'D';
 export const SHIP_DIRECTION_HORIZONTAL = 0;
 export const SHIP_DIRECTION_VERTICAL = 1;
 
-export const HUMAN_PLAYER = 1;
-export const COMPUTER_PLAYER = 0;
+export const HUMAN_PLAYER = 0;
+export const COMPUTER_PLAYER = 1;
 
 export const NO_GAME = 0;
 export const GAME_SETUP = 1;

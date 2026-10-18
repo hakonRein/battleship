@@ -13,22 +13,25 @@ const Gameboard = function() {
    const destroyer = Ship(Const.DESTROYER);
 
    const shipList = [carrier, battleship, cruiser, submarine, destroyer];
+   const placedShips = [];
 
    function placeShip(ship, x, y, direction) {
-      if (direction === Const.SHIP_DIRECTION_VERTICAL) {
-         const endX = x + ship.length - 1;
-         if (endX < 10) {
+      const endX = direction === Const.SHIP_DIRECTION_VERTICAL ? x + ship.length - 1 : 1;
+      const endY = direction === Const.SHIP_DIRECTION_HORIZONTAL ? y + ship.length - 1 : 1;
+      if (isAvailableSpace(x, y, endX, endY)) {
+         if (direction === Const.SHIP_DIRECTION_VERTICAL) {
             for (let i = x; i <= endX; i++) {
                board[i][y] = ship.type;
             }
-         }
-      } else {
-         const endY = y + ship.length - 1;
-         if (endY < 10) {
+         } else {
             for (let i = y; i <= endY; i++) {
                board[x][i] = ship.type;
             }
          }
+         placedShips.push(ship);
+         return true;
+      } else {
+         return false;
       }
    }
 
@@ -99,7 +102,21 @@ const Gameboard = function() {
       return initBoard;
    }
 
+   function isAvailableSpace(x1, y1, x2, y2) {
+      let otherShipsBlocking = false;
+      for (let x = x1; x <= x2; x++) {
+         otherShipsBlocking = otherShipsBlocking || 'HBCSD'.charAt(board[x][y1]) !== -1;
+      }
+      for (let y = y1; y <= y2; y++) {
+         otherShipsBlocking = otherShipsBlocking || 'HBCSD'.charAt(board[x1][y]) !== -1;
+      }
+      return x1 >= 0 && x1 < 10 && y1 >= 0 && y1 < 10
+         && x2 >= 0 && x2 < 10 && y2 >= 0 && y2 < 10
+         //&& !otherShipsBlocking;
+   }
+
    return { shipList,
+            placedShips,
             board, 
             receiveAttack, 
             placeShip, 
